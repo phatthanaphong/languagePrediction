@@ -1,0 +1,5 @@
+﻿fastapi==0.100.1
+pydantic==2.1.1
+pydantic-core==2.4.0
+scikit-learn==1.2.2
+uvicorn==0.22.0
