@@ -1,11 +1,14 @@
 from fastapi import FastAPI
-from code import predict_language
 import pickle
+import re
+import os
+from app.code import predict_language
+
 
 app = FastAPI()
 
-m = pickle.load(open(r'..\model\cls_langauage_0.1.pkl', 'rb'))
-cv = pickle.load(open(r'..\model\cv_feature.pkl', 'rb'))
+m = pickle.load(open(os.getcwd()+'/model/cls_langauage_0.1.pkl', 'rb'))
+cv = pickle.load(open(os.getcwd()+'/model/cv_feature.pkl', 'rb'))
 
 @app.get("/")
 def root():
@@ -16,5 +19,3 @@ def root():
 def read_str(item_str):
     lang = predict_language(m, cv, item_str)
     return {"language": lang}
-
-
