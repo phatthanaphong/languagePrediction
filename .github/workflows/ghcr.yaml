@@ -15,6 +15,6 @@ jobs:
       
       - name: Build and Push the Image to GHCR
         run: |
-          docker login ghcr.io -user phatthanaphong --passwork-stdin ${{secrets.CIKEY}}
+          docker login ghcr.io --username phatthanaphong --password-stdin ${{secrets.CIKEY}}
           docker build -t ghcr.io/phatthanaphong/languageprediction:latest .
           docker push ghcr.io/phatthanaphong/languageprediction:latest
