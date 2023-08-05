@@ -23,8 +23,8 @@ def predict_language(model,cv,text):
         text_1 = re.sub(r'[!@#$%^&*(),:;0-9,\n]',' ',text)
         text_2 = text_1.lower()
         x = cv.transform([text_2])
-        lang = model.predict(x)
-        return language[lang[0]]
+        cls = model.predict(x)
+        return language[cls[0]]
 
 # m = pickle.load(open(r'.\model\cls_langauage_0.1.pkl', 'rb'))
 # cv = pickle.load(open(r'.\model\cv_feature.pkl', 'rb'))
